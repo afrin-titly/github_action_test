@@ -1,6 +1,13 @@
 name: Execute Python Script
 on:
   workflow_dispatch:
+    inputs:
+      start-time:
+        description: 'Start time'
+        required: true
+      end-time:
+        description: 'End time'
+        required: true
 
 jobs:
   run-script:
@@ -16,4 +23,4 @@ jobs:
           python-version: 3.x
 
       - name: Execute Python Script
-        run: python script.py
+        run: python script.py ${{ github.event.inputs.start-time }} ${{ github.event.inputs.end-time }}
