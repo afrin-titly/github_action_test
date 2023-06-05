@@ -24,3 +24,9 @@ jobs:
 
       - name: Execute Python Script
         run: python script.py ${{ github.event.inputs.start-time }} ${{ github.event.inputs.end-time }}
+
+      - name: Upload CSV
+        uses: actions/upload-artifact@v2
+        with:
+          name: csv-data
+          path: csv/profiles.csv
